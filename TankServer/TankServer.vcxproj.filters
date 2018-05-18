@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Inc">
+      <UniqueIdentifier>{e025ed2f-5fe1-413d-8ae5-b016fe62f7a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{a3501858-23e2-463c-9c78-45619a43b3fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\GamePlay">
+      <UniqueIdentifier>{19a1c274-b02f-43af-b395-dd003fd698ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\Network">
+      <UniqueIdentifier>{ee87a5a7-0a36-4e0e-9a71-17d34cd4038b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\CoreGame">
+      <UniqueIdentifier>{6a078647-12c9-4136-87aa-5d138e273b23}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\BulletServer.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MouseServer.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TankServer.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\NetworkManagerServer.cpp">
+      <Filter>Inc\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ReplicationManagerServer.cpp">
+      <Filter>Inc\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ServerMain.cpp">
+      <Filter>Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Server.cpp">
+      <Filter>Inc\CoreGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ClientProxy.cpp">
+      <Filter>Inc\Network</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inc\TankServerPCH.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\BulletServer.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\MouseServer.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TankServer.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\NetworkManagerServer.h">
+      <Filter>Inc\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ReplicationManagerServer.h">
+      <Filter>Inc\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Server.h">
+      <Filter>Inc\CoreGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ClientProxy.h">
+      <Filter>Inc\Network</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Inc">
+      <UniqueIdentifier>{6531b2f1-c164-4873-bd1b-249b211b564a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{25081b57-0e8d-405b-8dd7-fc85e949e8db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\GamePlay">
+      <UniqueIdentifier>{2f70a0f9-e704-492f-99fd-384c3cec2b99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\SDL">
+      <UniqueIdentifier>{7ef674be-9cb4-46e4-a5e3-4ad4709bf779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\UI">
+      <UniqueIdentifier>{250fd355-b20e-434c-817e-1b856d9a3f40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\NetWork">
+      <UniqueIdentifier>{7908a2b2-7134-4b04-aace-deaccf160501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\Input">
+      <UniqueIdentifier>{e393792a-dcc8-44f2-a1c5-e45ecf671a4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\GamePlay\CoreGame">
+      <UniqueIdentifier>{eb924af4-645e-4c49-ad7f-0bf471e39c45}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\HUD.cpp">
+      <Filter>Inc\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\BulletClient.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ClientMain.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Client.cpp">
+      <Filter>Inc\GamePlay\CoreGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GraphicsDriver.cpp">
+      <Filter>Inc\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\InputManager.cpp">
+      <Filter>Inc\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\RenderManager.cpp">
+      <Filter>Inc\GamePlay\CoreGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TankClient.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SpriteComponent.cpp">
+      <Filter>Inc\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ReplicationManagerClient.cpp">
+      <Filter>Inc\NetWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\NetworkManagerClient.cpp">
+      <Filter>Inc\NetWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MouseClient.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Texture.cpp">
+      <Filter>Inc\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TextureManager.cpp">
+      <Filter>Inc\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\WindowManager.cpp">
+      <Filter>Inc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inc\TankClientPCH.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\BulletClient.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\MouseClient.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TankClient.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Texture.h">
+      <Filter>Inc\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TextureManager.h">
+      <Filter>Inc\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\HUD.h">
+      <Filter>Inc\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\NetworkManagerClient.h">
+      <Filter>Inc\NetWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ReplicationManagerClient.h">
+      <Filter>Inc\NetWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GraphicsDriver.h">
+      <Filter>Inc\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Client.h">
+      <Filter>Inc\GamePlay\CoreGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\SpriteComponent.h">
+      <Filter>Inc\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\RenderManager.h">
+      <Filter>Inc\GamePlay\CoreGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\InputManager.h">
+      <Filter>Inc\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\WindowManager.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

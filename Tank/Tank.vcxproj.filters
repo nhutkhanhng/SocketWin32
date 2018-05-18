@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{8e114980-c1a3-4ada-ad7c-83caadf5daeb}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Inc">
+      <UniqueIdentifier>{ac6b0ceb-0e73-4994-a8a4-4033393f065b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\GamePlay">
+      <UniqueIdentifier>{d193dd59-26e0-4617-a197-8e09b201aea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\Input">
+      <UniqueIdentifier>{b64b50fc-79a6-4d64-96fe-052f0dbf4327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\Calculate">
+      <UniqueIdentifier>{8e7c5a2a-9c35-4ed7-9f3c-7bb0bba66e1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\NetWwork">
+      <UniqueIdentifier>{7eb21574-99ea-4276-b98a-d9c810ea363f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\CoreGame">
+      <UniqueIdentifier>{72804642-a24b-4d64-86d7-d69f103867bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\CoreGame\Ultities">
+      <UniqueIdentifier>{bcd2db6f-232a-48f8-8d00-e144346c8dfb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inc\ScoreBoardManager.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TankPCH.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TankShared.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Bullet.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GameObject.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Tank.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\World.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\InputAction.h">
+      <Filter>Inc\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\InputState.h">
+      <Filter>Inc\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\MemoryBitStream.h">
+      <Filter>Inc\Calculate</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ReplicationCommand.h">
+      <Filter>Inc\Calculate</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\NetworkManager.h">
+      <Filter>Inc\NetWwork</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\SocketUtil.h">
+      <Filter>Inc\NetWwork</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\SocketAddressFactory.h">
+      <Filter>Inc\NetWwork</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\SocketAddress.h">
+      <Filter>Inc\NetWwork</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\UDPSocket.h">
+      <Filter>Inc\NetWwork</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\WeightedTimedMovingAverage.h">
+      <Filter>Inc\Calculate</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Mouse.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Engine.h">
+      <Filter>Inc\CoreGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\MoveList.h">
+      <Filter>Inc\CoreGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Move.h">
+      <Filter>Inc\CoreGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TCPSocket.h">
+      <Filter>Inc\NetWwork</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GameObjectRegistry.h">
+      <Filter>Inc\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\StringUtils.h">
+      <Filter>Inc\CoreGame\Ultities</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Timing.h">
+      <Filter>Inc\CoreGame\Ultities</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TankMath.h">
+      <Filter>Inc\CoreGame\Ultities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Bullet.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Engine.cpp">
+      <Filter>Inc\CoreGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GameObject.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GameObjectRegistry.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\InputState.cpp">
+      <Filter>Inc\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MemoryBitStream.cpp">
+      <Filter>Inc\Calculate</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Mouse.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Move.cpp">
+      <Filter>Inc\CoreGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Tank.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\NetworkManager.cpp">
+      <Filter>Inc\NetWwork</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MoveList.cpp">
+      <Filter>Inc\CoreGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TankMath.cpp">
+      <Filter>Inc\CoreGame\Ultities</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ScoreBoardManager.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SocketAddressFactory.cpp">
+      <Filter>Inc\NetWwork</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SocketAddress.cpp">
+      <Filter>Inc\NetWwork</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SocketUtil.cpp">
+      <Filter>Inc\NetWwork</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\StringUtils.cpp">
+      <Filter>Inc\CoreGame\Ultities</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TCPSocket.cpp">
+      <Filter>Inc\NetWwork</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Timing.cpp">
+      <Filter>Inc\CoreGame\Ultities</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UDPSocket.cpp">
+      <Filter>Inc\NetWwork</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\World.cpp">
+      <Filter>Inc\GamePlay</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
