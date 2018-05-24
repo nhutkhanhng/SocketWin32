@@ -13,7 +13,7 @@ GameObject::GameObject() :
 
 void GameObject::Update()
 {
-	//object don't do anything by default...	
+
 }
 
 

@@ -2,7 +2,7 @@ class Bullet : public GameObject
 {
 public:
 
-	CLASS_IDENTIFICATION( 'YARN', GameObject )
+	CLASS_IDENTIFICATION( 'BULT', GameObject )
 
 	enum EYarnReplicationState
 	{
@@ -29,7 +29,7 @@ public:
 
 	virtual void Update() override;
 
-	virtual bool HandleCollisionWithCat( Tank* inCat ) override;
+	virtual bool HandleCollisionWithTank( Tank* inCat ) override;
 
 protected:
 	Bullet();

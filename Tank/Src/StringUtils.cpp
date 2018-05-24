@@ -19,7 +19,6 @@ string StringUtils::GetCommandLineArg( int inIndex )
 	return string();
 }
 
-
 string StringUtils::Sprintf( const char* inFormat, ... )
 {
 	//not thread safe...

@@ -11,8 +11,8 @@ public:
 	void HandleNewClient( ClientProxyPtr inClientProxy );
 	void HandleLostClient( ClientProxyPtr inClientProxy );
 
-	TankPtr	GetCatForPlayer( int inPlayerId );
-	void	SpawnCatForPlayer( int inPlayerId );
+	TankPtr	GetTankForPlayer( int inPlayerId );
+	void	SpawnTankForPlayer( int inPlayerId );
 
 
 private:

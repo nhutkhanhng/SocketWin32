@@ -7,6 +7,13 @@
 	#include "Ws2tcpip.h"
 	typedef int socklen_t;
 	//typedef char* receiveBufer_t;
+
+#include <stdio.h>
+#include <io.h>
+#include <fcntl.h>
+#include <windows.h>
+#include <iostream>
+
 #else
 	#include <sys/socket.h>
 	#include <netinet/in.h>
@@ -70,7 +77,7 @@ class GameObject;
 #include "Tank.h"
 #include "World.h"
 #include "Timing.h"
-#include "Mouse.h"
+
 #include "Bullet.h"
 #include "StringUtils.h"
 #include "ScoreBoardManager.h"
@@ -79,3 +86,5 @@ class GameObject;
 #include "ReplicationCommand.h"
 #include "NetworkManager.h"
 #include "Engine.h"
+
+

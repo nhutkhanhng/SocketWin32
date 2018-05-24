@@ -1,7 +1,6 @@
 #include <TankServerPCH.h>
 
 
-
 //uncomment this when you begin working on the server
 
 bool Server::StaticInit()
@@ -14,9 +13,9 @@ bool Server::StaticInit()
 Server::Server()
 {
 
-	GameObjectRegistry::sInstance->RegisterCreationFunction( 'RCAT', TankServer::StaticCreate );
-	GameObjectRegistry::sInstance->RegisterCreationFunction( 'MOUS', MouseServer::StaticCreate );
-	GameObjectRegistry::sInstance->RegisterCreationFunction( 'YARN', BulletServer::StaticCreate );
+	GameObjectRegistry::sInstance->RegisterCreationFunction( 'TANK', TankServer::StaticCreate );
+
+	GameObjectRegistry::sInstance->RegisterCreationFunction( 'BULT', BulletServer::StaticCreate );
 
 	InitNetworkManager();
 	
@@ -47,35 +46,31 @@ bool Server::InitNetworkManager()
 }
 
 
-namespace
-{
-	
-	void CreateRandomMice( int inMouseCount )
-	{
-		Vector3 mouseMin( -5.f, -3.f, 0.f );
-		Vector3 mouseMax( 5.f, 3.f, 0.f );
-		GameObjectPtr go;
-
-		//make a mouse somewhere- where will these come from?
-		for( int i = 0; i < inMouseCount; ++i )
-		{
-			go = GameObjectRegistry::sInstance->CreateGameObject( 'MOUS' );
-			Vector3 mouseLocation = RoboMath::GetRandomVector( mouseMin, mouseMax );
-			go->SetLocation( mouseLocation );
-		}
-	}
-
-
-}
+//namespace
+//{
+//	
+//	void CreateRandomMice( int inMouseCount )
+//	{
+//		Vector3 mouseMin( -5.f, -3.f, 0.f );
+//		Vector3 mouseMax( 5.f, 3.f, 0.f );
+//		GameObjectPtr go;
+//
+//		//make a mouse somewhere- where will these come from?
+//		for( int i = 0; i < inMouseCount; ++i )
+//		{
+//			go = GameObjectRegistry::sInstance->CreateGameObject( 'MOUS' );
+//			Vector3 mouseLocation = TankMath::GetRandomVector( mouseMin, mouseMax );
+//			go->SetLocation( mouseLocation );
+//		}
+//	}
+//
+//
+//}
 
 
 void Server::SetupWorld()
 {
-	//spawn some random mice
-	CreateRandomMice( 10 );
-	
-	//spawn more random mice!
-	CreateRandomMice( 10 );
+	// Inittialize something elseTank
 }
 
 void Server::DoFrame()
@@ -84,7 +79,7 @@ void Server::DoFrame()
 
 	NetworkManagerServer::sInstance->CheckForDisconnects();
 
-	NetworkManagerServer::sInstance->RespawnCats();
+	NetworkManagerServer::sInstance->RespawnTanks();
 
 	Engine::DoFrame();
 
@@ -98,44 +93,41 @@ void Server::HandleNewClient( ClientProxyPtr inClientProxy )
 	int playerId = inClientProxy->GetPlayerId();
 	
 	ScoreBoardManager::sInstance->AddEntry( playerId, inClientProxy->GetName() );
-	SpawnCatForPlayer( playerId );
+	
+	SpawnTankForPlayer( playerId );
 }
 
-void Server::SpawnCatForPlayer( int inPlayerId )
+void Server::SpawnTankForPlayer( int inPlayerId )
 {
-	TankPtr cat = std::static_pointer_cast< Tank >( GameObjectRegistry::sInstance->CreateGameObject( 'RCAT' ) );
-	cat->SetColor( ScoreBoardManager::sInstance->GetEntry( inPlayerId )->GetColor() );
-	cat->SetPlayerId( inPlayerId );
+	TankPtr tank = std::static_pointer_cast< Tank >( GameObjectRegistry::sInstance->CreateGameObject( 'TANK' ) );
+	tank->SetColor( ScoreBoardManager::sInstance->GetEntry( inPlayerId )->GetColor() );
+	tank->SetPlayerId( inPlayerId );
 	//gotta pick a better spawn location than this...
-	cat->SetLocation( Vector3( 1.f - static_cast< float >( inPlayerId ), 0.f, 0.f ) );
+	tank->SetLocation( Vector3( 1.f - static_cast< float >( inPlayerId ), 0.f, 0.f ) );
 
 }
 
 void Server::HandleLostClient( ClientProxyPtr inClientProxy )
 {
-	//kill client's cat
-	//remove client from scoreboard
 	int playerId = inClientProxy->GetPlayerId();
 
+	
 	ScoreBoardManager::sInstance->RemoveEntry( playerId );
-	TankPtr cat = GetCatForPlayer( playerId );
-	if( cat )
+	TankPtr tank = GetTankForPlayer( playerId );
+
+	if( tank )
 	{
-		cat->SetDoesWantToDie( true );
+		tank->SetDoesWantToDie( true );
 	}
 }
 
-TankPtr Server::GetCatForPlayer( int inPlayerId )
+TankPtr Server::GetTankForPlayer( int inPlayerId )
 {
-	//run through the objects till we find the cat...
-	//it would be nice if we kept a pointer to the cat on the clientproxy
-	//but then we'd have to clean it up when the cat died, etc.
-	//this will work for now until it's a perf issue
 	const auto& gameObjects = World::sInstance->GetGameObjects();
 	for( int i = 0, c = gameObjects.size(); i < c; ++i )
 	{
 		GameObjectPtr go = gameObjects[ i ];
-		Tank* cat = go->GetAsCat();
+		Tank* cat = go->GetAsTank();
 		if( cat && cat->GetPlayerId() == inPlayerId )
 		{
 			return std::static_pointer_cast< Tank >( go );

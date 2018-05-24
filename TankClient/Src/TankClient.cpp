@@ -7,14 +7,13 @@ TankClient::TankClient() :
 	mTimeVelocityBecameOutOfSync( 0.f )
 {
 	mSpriteComponent.reset( new SpriteComponent( this ) );
-	mSpriteComponent->SetTexture( TextureManager::sInstance->GetTexture( "cat" ) );
+	mSpriteComponent->SetTexture( TextureManager::sInstance->GetTexture( "Tank" ) );
 }
 
 void TankClient::HandleDying()
 {
 	Tank::HandleDying();
 
-	//and if we're local, tell the hud so our health goes away!
 	if( GetPlayerId() == NetworkManagerClient::sInstance->GetPlayerId() )
 	{
 		HUD::sInstance->SetPlayerHealth( 0 );

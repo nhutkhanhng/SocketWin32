@@ -109,6 +109,13 @@ public:
 		mY /= length;
 	}
 
+	friend std::ostream& operator << (std::ostream& os, const Vector3 vector)
+	{
+		os << vector.mX << vector.mY << vector.mZ;
+
+		return os;
+	}
+
 	friend float Dot( const Vector3& inLeft, const Vector3& inRight )
 	{
 		return ( inLeft.mX * inRight.mX + inLeft.mY * inRight.mY + inLeft.mZ * inRight.mZ );
@@ -167,7 +174,7 @@ struct GetRequiredBits
 	enum { Value = GetRequiredBitsHelper< tValue, 0 >::Value };
 };
 
-namespace RoboMath
+namespace TankMath
 {
 	const float PI = 3.1415926535f;
 	float GetRandomFloat();

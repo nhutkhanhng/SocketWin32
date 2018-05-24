@@ -208,7 +208,6 @@ void NetworkManagerClient::SendInputPacket()
 	{
 		OutputMemoryBitStream inputPacket; 
 		inputPacket.Write( kInputCC );
-
 		//we only want to send the last three moves
 		int moveCount = moveList.GetMoveCount();
 		int startIndex = moveCount > 3 ? moveCount - 3 - 1 : 0;

@@ -48,14 +48,11 @@ void NetworkManager::ProcessIncomingPackets()
 
 void NetworkManager::ReadIncomingPacketsIntoQueue()
 {
-	//should we just keep a static one?
-	//should we just keep a static one?
 	char packetMem[ 1500 ];
 	int packetSize = sizeof( packetMem );
 	InputMemoryBitStream inputStream( packetMem, packetSize * 8 );
 	SocketAddress fromAddress;
 
-	//keep reading until we don't have anything to read ( or we hit a max number that we'll process per frame )
 	int receivedPackedCount = 0;
 	int totalReadByteCount = 0;
 
@@ -69,7 +66,6 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
 		}
 		else if( readByteCount == -WSAECONNRESET )
 		{
-			//port closed on other end, so DC this person immediately
 			HandleConnectionReset( fromAddress );
 		}
 		else if( readByteCount > 0 )
@@ -78,14 +74,8 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
 			++receivedPackedCount;
 			totalReadByteCount += readByteCount;
 
-			//now, should we drop the packet?
-			if( RoboMath::GetRandomFloat() >= mDropPacketChance )
+			if( TankMath::GetRandomFloat() >= mDropPacketChance )
 			{
-				//we made it
-				//shove the packet into the queue and we'll handle it as soon as we should...
-				//we'll pretend it wasn't received until simulated latency from now
-				//this doesn't sim jitter, for that we would need to.....
-
 				float simulatedReceivedTime = Timing::sInstance.GetTimef() + mSimulatedLatency;
 				mPacketQueue.emplace( simulatedReceivedTime, inputStream, fromAddress );
 			}
@@ -97,7 +87,6 @@ void NetworkManager::ReadIncomingPacketsIntoQueue()
 		}
 		else
 		{
-			//uhoh, error? exit or just keep going?
 		}
 	}
 

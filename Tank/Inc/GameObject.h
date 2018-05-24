@@ -13,12 +13,12 @@ public:
 	GameObject();
 	virtual ~GameObject() {}
 
-	virtual	Tank*	GetAsCat()	{ return nullptr; }
+	virtual	Tank*	GetAsTank()	{ return nullptr; }
 
 	virtual uint32_t GetAllStateMask()	const { return 0; }
 
 	//return whether to keep processing collision
-	virtual bool	HandleCollisionWithCat( Tank* inCat ) { ( void ) inCat; return true; }
+	virtual bool	HandleCollisionWithTank( Tank* inTank ) { ( void )inTank; return true; }
 
 	virtual void	Update();
 

@@ -28,9 +28,9 @@ bool Client::StaticInit( )
 
 Client::Client()
 {
-	GameObjectRegistry::sInstance->RegisterCreationFunction( 'RCAT', TankClient::StaticCreate );
-	GameObjectRegistry::sInstance->RegisterCreationFunction( 'MOUS', MouseClient::StaticCreate );
-	GameObjectRegistry::sInstance->RegisterCreationFunction( 'YARN', BulletClient::StaticCreate );
+	GameObjectRegistry::sInstance->RegisterCreationFunction( 'TANK', TankClient::StaticCreate );
+
+	GameObjectRegistry::sInstance->RegisterCreationFunction( 'BULT', BulletClient::StaticCreate );
 
 	string destination = StringUtils::GetCommandLineArg( 1 );
 	string name = StringUtils::GetCommandLineArg( 2 );

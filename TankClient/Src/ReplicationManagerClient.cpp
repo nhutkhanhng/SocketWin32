@@ -39,12 +39,11 @@ void ReplicationManagerClient::ReadAndDoCreateAction( InputMemoryBitStream& inIn
 	GameObjectPtr gameObject = NetworkManagerClient::sInstance->GetGameObject( inNetworkId );
 	if( !gameObject )
 	{
-		//create the object and map it...
 		gameObject = GameObjectRegistry::sInstance->CreateGameObject( fourCCName );
 		gameObject->SetNetworkId( inNetworkId );
 		NetworkManagerClient::sInstance->AddToNetworkIdToGameObjectMap( gameObject );
 		
-		//it had really be the rigth type...
+
 		assert( gameObject->GetClassId() == fourCCName );
 	}
 
@@ -54,11 +53,9 @@ void ReplicationManagerClient::ReadAndDoCreateAction( InputMemoryBitStream& inIn
 
 void ReplicationManagerClient::ReadAndDoUpdateAction( InputMemoryBitStream& inInputStream, int inNetworkId )
 {
-	//need object
+
 	GameObjectPtr gameObject = NetworkManagerClient::sInstance->GetGameObject( inNetworkId );
 
-	//gameObject MUST be found, because create was ack'd if we're getting an update...
-	//and read state
 	gameObject->Read( inInputStream );
 }
 

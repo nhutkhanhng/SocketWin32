@@ -12,7 +12,7 @@
 #include <WindowManager.h>
 
 #include <TankClient.h>
-#include <MouseClient.h>
+
 #include <BulletClient.h>
 
 #include <HUD.h>

@@ -1,9 +1,9 @@
 class Tank : public GameObject
 {
 public:
-	CLASS_IDENTIFICATION( 'RCAT', GameObject )
+	CLASS_IDENTIFICATION( 'TANK', GameObject )
 
-	enum ECatReplicationState
+	enum ETankReplicationState
 	{
 		ECRS_Pose = 1 << 0,
 		ECRS_Color = 1 << 1,
@@ -18,7 +18,7 @@ public:
 
 	virtual uint32_t GetAllStateMask()	const override	{ return ECRS_AllState; }
 
-	virtual	Tank*	GetAsCat() override { return this; }
+	virtual	Tank*	GetAsTank() override { return this; }
 
 	virtual void Update() override;
 

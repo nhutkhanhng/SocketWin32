@@ -39,7 +39,6 @@ void Timing::Update()
 
     mDeltaTime = ( float ) ( currentTime - mLastFrameStartTime );
 
-	//frame lock at 60fps
 	while( mDeltaTime < kDesiredFrameTime )
 	{
 		currentTime = GetTime();

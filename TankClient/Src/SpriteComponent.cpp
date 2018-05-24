@@ -41,6 +41,6 @@ void SpriteComponent::Draw( const SDL_Rect& inViewTransform )
 		
 		// Blit the texture
 		SDL_RenderCopyEx( GraphicsDriver::sInstance->GetRenderer(), mTexture->GetData(), nullptr,
-			&dstRect, RoboMath::ToDegrees( mGameObject->GetRotation() ), nullptr, SDL_FLIP_NONE );
+			&dstRect, TankMath::ToDegrees( mGameObject->GetRotation() ), nullptr, SDL_FLIP_NONE );
 	}
 }

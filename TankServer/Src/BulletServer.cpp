@@ -24,14 +24,14 @@ void BulletServer::Update()
 
 }
 
-bool BulletServer::HandleCollisionWithCat(Tank* inCat )
+bool BulletServer::HandleCollisionWithTank(Tank* inTank )
 {
-	if( inCat->GetPlayerId() != GetPlayerId() )
+	if(inTank->GetPlayerId() != GetPlayerId() )
 	{
 		//kill yourself!
 		SetDoesWantToDie( true );
 
-		static_cast< TankServer* >( inCat )->TakeDamage( GetPlayerId() );
+		static_cast< TankServer* >(inTank)->TakeDamage( GetPlayerId() );
 
 	}
 

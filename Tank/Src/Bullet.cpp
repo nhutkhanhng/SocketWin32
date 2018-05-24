@@ -70,9 +70,9 @@ uint32_t Bullet::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtyS
 
 
 
-bool Bullet::HandleCollisionWithCat(Tank* inCat )
+bool Bullet::HandleCollisionWithTank(Tank* inTank )
 {
-	( void ) inCat;
+	( void ) inTank;
 
 	//you hit a cat, so look like you hit a cat
 	

@@ -16,13 +16,11 @@ Tank::Tank() :
 	mIsShooting( false ),
 	mHealth( 10 )
 {
-	SetCollisionRadius( 0.5f );
+	SetCollisionRadius( 0.25f );
 }
 
 void Tank::ProcessInput( float inDeltaTime, const InputState& inInputState )
 {
-	//process our input....
-
 	//turning...
 	float newRotation = GetRotation() + inInputState.GetDesiredHorizontalDelta() * mMaxRotationSpeed * inDeltaTime;
 	SetRotation( newRotation );
@@ -38,9 +36,8 @@ void Tank::ProcessInput( float inDeltaTime, const InputState& inInputState )
 
 void Tank::AdjustVelocityByThrust( float inDeltaTime )
 {
-	//just set the velocity based on the thrust direction -- no thrust will lead to 0 velocity
-	//simulating acceleration makes the client prediction a bit more complex
 	Vector3 forwardVector = GetForwardVector();
+
 	mVelocity = forwardVector * ( mThrustDir * inDeltaTime * mMaxLinearSpeed );
 }
 
@@ -61,55 +58,51 @@ void Tank::Update()
 
 void Tank::ProcessCollisions()
 {
-	//right now just bounce off the sides..
 	ProcessCollisionsWithScreenWalls();
 
 	float sourceRadius = GetCollisionRadius();
+
+	std::cout << "R:" << sourceRadius << std::endl;
+
 	Vector3 sourceLocation = GetLocation();
 
-	//now let's iterate through the world and see what we hit...
-	//note: since there's a small number of objects in our game, this is fine.
-	//but in a real game, brute-force checking collisions against every other object is not efficient.
-	//it would be preferable to use a quad tree or some other structure to minimize the
-	//number of collisions that need to be tested.
 	for( auto goIt = World::sInstance->GetGameObjects().begin(), end = World::sInstance->GetGameObjects().end(); goIt != end; ++goIt )
 	{
 		GameObject* target = goIt->get();
 		if( target != this && !target->DoesWantToDie() )
 		{
-			//simple collision test for spheres- are the radii summed less than the distance?
 			Vector3 targetLocation = target->GetLocation();
+
+			
 			float targetRadius = target->GetCollisionRadius();
+
+			std::cout << "TargetRadius" << targetRadius << std::endl;
 
 			Vector3 delta = targetLocation - sourceLocation;
 			float distSq = delta.LengthSq2D();
 			float collisionDist = ( sourceRadius + targetRadius );
 			if( distSq < ( collisionDist * collisionDist ) )
 			{
-				//first, tell the other guy there was a collision with a cat, so it can do something...
 
-				if( target->HandleCollisionWithCat( this ) )
+				if( target->HandleCollisionWithTank( this ) )
 				{
-					//okay, you hit something!
-					//so, project your location far enough that you're not colliding
 					Vector3 dirToTarget = delta;
+
 					dirToTarget.Normalize2D();
+
 					Vector3 acceptableDeltaFromSourceToTarget = dirToTarget * collisionDist;
-					//important note- we only move this cat. the other cat can take care of moving itself
+
 					SetLocation( targetLocation - acceptableDeltaFromSourceToTarget );
 
 					
 					Vector3 relVel = mVelocity;
 				
-					//if other object is a cat, it might have velocity, so there might be relative velocity...
-					Tank* targetCat = target->GetAsCat();
+					Tank* targetCat = target->GetAsTank();
 					if( targetCat )
 					{
 						relVel -= targetCat->mVelocity;
 					}
-
-					//got vel with dir between objects to figure out if they're moving towards each other
-					//and if so, the magnitude of the impulse ( since they're both just balls )
+					
 					float relVelDotDir = Dot2D( relVel, dirToTarget );
 
 					if (relVelDotDir > 0.f)
@@ -146,7 +139,6 @@ void Tank::ProcessCollisionsWithScreenWalls()
 
 	float radius = GetCollisionRadius();
 
-	//if the cat collides against a wall, the quick solution is to push it off
 	if( ( y + radius ) >= HALF_WORLD_HEIGHT && vy > 0 )
 	{
 		mVelocity.mY = -vy * mWallRestitution;
@@ -178,6 +170,7 @@ uint32_t Tank::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySta
 {
 	uint32_t writtenState = 0;
 
+	// Write PlayerID
 	if( inDirtyState & ECRS_PlayerId )
 	{
 		inOutputStream.Write( (bool)true );
@@ -247,11 +240,6 @@ uint32_t Tank::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySta
 		inOutputStream.Write( (bool)false );
 	}
 
-
-	
-
-
-	
 
 	return writtenState;
 	
