@@ -34,20 +34,21 @@ Engine::~Engine()
 
 int Engine::Run()
 {
+	std::cout << "Enging Run" << std::endl;
+
 	return DoRunLoop();
 }
 
 void Engine::HandleEvent( SDL_Event* inEvent )
 {
-	// Default implementation does nothing, up to derived classes to handle them, if they so choose
 	( void )inEvent;
 }
 
 int Engine::DoRunLoop()
 {
-	// Main message loop
 	bool quit = false;
 	SDL_Event event;
+
 	memset( &event, 0, sizeof( SDL_Event ) );
 
 	while( !quit && mShouldKeepRunning )

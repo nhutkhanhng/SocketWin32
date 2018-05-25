@@ -5,12 +5,12 @@ namespace
 	const float kRespawnDelay = 3.f;
 }
 
-ClientProxy::ClientProxy( const SocketAddress& inSocketAddress, const string& inName, int inPlayerId ) :
-mSocketAddress( inSocketAddress ),
-mName( inName ),
-mPlayerId( inPlayerId ),
-mIsLastMoveTimestampDirty( false ),
-mTimeToRespawn( 0.f )
+ClientProxy::ClientProxy(const SocketAddress& inSocketAddress, const string& inName, int inPlayerId) :
+	mSocketAddress(inSocketAddress),
+	mName(inName),
+	mPlayerId(inPlayerId),
+	mIsLastMoveTimestampDirty(false),
+	mTimeToRespawn(0.f)
 {
 	UpdateLastPacketTime();
 }
@@ -18,7 +18,7 @@ mTimeToRespawn( 0.f )
 
 void ClientProxy::UpdateLastPacketTime()
 {
-	mLastPacketFromClientTime = Timing::sInstance.GetTimef(); 
+	mLastPacketFromClientTime = Timing::sInstance.GetTimef();
 }
 
 void	ClientProxy::HandleTankDied()
@@ -28,9 +28,9 @@ void	ClientProxy::HandleTankDied()
 
 void	ClientProxy::RespawnTankIfNecessary()
 {
-	if( mTimeToRespawn != 0.f && Timing::sInstance.GetFrameStartTime() > mTimeToRespawn )
+	if (mTimeToRespawn != 0.f && Timing::sInstance.GetFrameStartTime() > mTimeToRespawn)
 	{
-		static_cast< Server* > ( Engine::sInstance.get() )->SpawnTankForPlayer( mPlayerId );
+		static_cast<Server*> (Engine::sInstance.get())->SpawnTankForPlayer(mPlayerId);
 		mTimeToRespawn = 0.f;
 	}
 }
